@@ -1,0 +1,14 @@
+/* em relativa al font-size
+  rem relativa al font-size del elemento root, html
+  auto para centrar respecto a su contenedor
+  */
+
+#app {
+  margin: 3rem auto;
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+
+
+

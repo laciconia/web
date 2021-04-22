@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World con Vue</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next"></script> 
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h1>Ejercicio de eventos</h1>
+        <button>Incrementar contador</button>
+        <button style="margin-left:1rem">Decrementar contador</button>
+        <p class="centrado">{{numero}}</p>
+    </div>
+    <div id=“app”>
+      <h1>{{mensaje1}}</h1>
+      <p>{{mensaje2}} con
+      <a vbind:href=”mostrarUrl()”>textoRandom()</a>
+      </p>
+      <div>
+  </body>
+</html>
