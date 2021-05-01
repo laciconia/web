@@ -1,7 +1,30 @@
-/* em relativa al font-size
-  rem relativa al font-size del elemento root, html
-  auto para centrar respecto a su contenedor
-  */
+body {
+  margin: auto;
+}
+
+h1 {
+  text-align:center;
+}
+
+#carousel {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.test {
+  margin:auto;
+}
+
+.carousel-item{
+  max-width: 70%;
+  margin: auto;
+}
+
+.navbar {
+    border:5px solid black;
+    margin: 20px;
+}
 
 #app {
   margin: 3rem auto;
