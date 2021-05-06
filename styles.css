@@ -6,6 +6,11 @@ h1 {
   text-align:center;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 #carousel {
   max-width: 70%;
   margin: auto;
