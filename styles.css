@@ -2,6 +2,15 @@ body {
   margin: auto;
 }
 
+.contenidor {
+  background-color: rgb(229, 253, 229);
+  padding: 3rem;
+  border-radius: 15px;
+  border-style: ridge;
+  
+  
+}
+
 h1 {
   text-align:center;
   padding: 1%;
@@ -52,7 +61,5 @@ img {
   max-width: 40rem;
   padding: 1rem;
 }
-
-
 
 
