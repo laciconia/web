@@ -34,6 +34,9 @@ const micalculadora = Vue.createApp({
          var parts =date.split('-');
          // els mesos van amb -1 perk comença del 0
          var mydate = new Date(parts[2], parts[1] - 1, parts[0]);
+      },
+      calcular(){
+        
       }
     },
 
