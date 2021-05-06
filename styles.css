@@ -2,13 +2,18 @@ body {
   margin: auto;
 }
 
-.contenidor {
+.pregunta {
   background-color: rgb(229, 253, 229);
   padding: 3rem;
   border-radius: 15px;
   border-style: ridge;
-  
-  
+}
+
+.resposta {
+  background-color: rgb(229, 252, 253);
+  padding: 3rem;
+  border-radius: 15px;
+  border-style: ridge;
 }
 
 h1 {

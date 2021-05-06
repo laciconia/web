@@ -73,7 +73,7 @@
       <div>
         <h1>Benvingut a la calculadora de creixment del teu nadó</h1>
         <p>Quant ha crescut el teu bebè?</p>
-        <div class="container contenidor">
+        <div class="container pregunta">
           <p>Data de l'última menstruació: <!--{{ date }}-->
           <input id="datepicker" v-model="date">
           </p>
@@ -87,11 +87,23 @@
               <input id="num2" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg. </div>
           </div>
 
-            <div class="row">Pes del nen (si se sap): </div>
-            <button type="button" class="btn btn-primary" @click="calcular">Calcular</button>
+            <div class="row">
+              <div class="col-sm">Pes del nen (si se sap): 
+                <input id="num2" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg.
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" @click="calcular()">Calcular</button>
         </div>
-        {{mostrarResultat}}
-          <div class="container resposta" v-if="mostrarResultat == 1">hola</div>
+          <div class="container resposta" v-if="mostrarResultat">
+            <p>Et trobes a la setmana {{setmana}}.</p>
+            <p>En aquesta setmana {{infoSetmana}}.</p>
+            <p>En aquesta setmana, el teu bebè mesura {{mesura}} i pesa {{pes}} aproximadament. En el gràfic següent pots veure com és el creixement típic d'un nadó durant l'embaràs.</p>
+            TODO ¡¡¡¡ insertar gráfico aquí (no va) !!!!
+            <img source="./imatges/graficcreixement.jpeg" class="img-fluid mx-auto d-block" width="100%" height="100%" alt="Gràfic del creixement del fetus"/>
+            <p>L'alimentació adecuada és molt important pel desenvolupament del bebè, et recomanem que visitis el nostre apartat
+              <a href="info.html" title="Descubre todos los secretos para tener un bebé sanote!">informació</a>.
+            </p>
+          </div>
             
       </div>
     </section>

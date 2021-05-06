@@ -6,8 +6,12 @@ const micalculadora = Vue.createApp({
         mensaje2: 'Mi primer programa con',
         jsF: 'Vue', url: 'https://vuejs.org',
         date: '',
-        mostrarResultat: 0,
-        resposta: '',
+        mostrarResultat: false,
+        setmana: 0,
+        infoSetmana: '',
+        mesura: '',
+        pes: '',
+        mostrarExtra: false,
       };
     },
     mounted: function() {
@@ -33,13 +37,22 @@ const micalculadora = Vue.createApp({
       computeData(){
          //var data = new Date(this.date);
          //return new Date(this.date) + 7;
-         var parts =date.split('-');
+         var parts =this.date.split('-');
          // els mesos van amb -1 perk comença del 0
          var mydate = new Date(parts[2], parts[1] - 1, parts[0]);
+         return mydate;
       },
       calcular(){
-
-        mostrarResultat = 1;
+        var avui = new Date();
+        var parts =this.date.split('-');
+        var mydate = new Date(parts[2], parts[1] - 1, parts[0]);
+        var diff =(avui.getTime() - mydate.getTime()) / 1000;
+        diff /= (60 * 60 * 24 * 7);
+        this.setmana = Math.abs(Math.round(diff)) -2;
+        this.infoSetmana = 'aquesta setmana el teu bebè està content :D';
+        this.pes = 'molt perquè està ple de felicitat';
+        this.mesura = 'molt poc yas skinnyyyyy';
+        this.mostrarResultat = 1;
       }
     },
 
