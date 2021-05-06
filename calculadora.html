@@ -70,28 +70,30 @@
     </nav>
 
     <section id="calculadorapes">
-        <div>
-            <h1>Benvingut a la calculadora de creixment del teu nadó</h1>
-            <p>Quant ha crescut el teu bebè?</p>
-            <div class="container contenidor">
-                <p>Data de l'última menstruació: <!--{{ date }}-->
-                <input id="datepicker" v-model="date">
-                </p>
-                <p>La data aproximada de naixement és: {{ calcula }}</p>
-                <div class="row">Informació adicional (opcional):</div>
-                
-                <div class="row">
-                    <div class="col-sm">Pes de la mare durant lúltima menstruació:
-                    <input id="num1" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg.</div>
-                    <div class="col-sm">Pes actual:
-                    <input id="num2" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg. </div>
-                </div>
+      <div>
+        <h1>Benvingut a la calculadora de creixment del teu nadó</h1>
+        <p>Quant ha crescut el teu bebè?</p>
+        <div class="container contenidor">
+          <p>Data de l'última menstruació: <!--{{ date }}-->
+          <input id="datepicker" v-model="date">
+          </p>
+          <p>La data aproximada de naixement és: {{ calcula }}</p>
+          <div class="row">Informació adicional (opcional):</div>
+          
+          <div class="row">
+              <div class="col-sm">Pes de la mare durant lúltima menstruació:
+              <input id="num1" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg.</div>
+              <div class="col-sm">Pes actual:
+              <input id="num2" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg. </div>
+          </div>
 
-                <div class="row">Pes del nen (si se sap): </div>
-                <button type="button" class="btn btn-primary" @click="calcular">Calcular</button>
-            </div>
-            
+            <div class="row">Pes del nen (si se sap): </div>
+            <button type="button" class="btn btn-primary" @click="calcular">Calcular</button>
         </div>
+        {{mostrarResultat}}
+          <div class="container resposta" v-if="mostrarResultat == 1">hola</div>
+            
+      </div>
     </section>
 
   </body>

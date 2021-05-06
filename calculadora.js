@@ -6,6 +6,8 @@ const micalculadora = Vue.createApp({
         mensaje2: 'Mi primer programa con',
         jsF: 'Vue', url: 'https://vuejs.org',
         date: '',
+        mostrarResultat: 0,
+        resposta: '',
       };
     },
     mounted: function() {
@@ -36,7 +38,8 @@ const micalculadora = Vue.createApp({
          var mydate = new Date(parts[2], parts[1] - 1, parts[0]);
       },
       calcular(){
-        
+
+        mostrarResultat = 1;
       }
     },
 
