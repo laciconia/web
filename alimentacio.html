@@ -12,13 +12,13 @@
   </head>
   <body>
     <h1>La Ciconia</h1>
-    <nav class="navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 0;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="horizontal gray navbar-nav mr-auto" style="width:100%; margin:20px;">
+      <div class="horizontal gray collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="menu2 navbar-nav mr-auto" style="width:100%;">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inici <span class="sr-only">(current)</span></a>
           </li>
@@ -29,7 +29,7 @@
             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Informació
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu" style="margin:0px 10px"aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Setmana a setmana</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Part</a>
@@ -53,15 +53,13 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Sobre nosaltres</a>
           </li>
-
-          <form class="form-inline my-2 my-lg-0" style="float:right;">
+        </ul>
+        <div class="justify-content-center align-items-cente" style="display: flex;">
+          <form class="form-inline my-2 my-lg-0" style="flex-flow: nowrap;  margin: 0px 10px;">
             <input class="form-control mr-sm-2" type="search" placeholder="Tens alguna consulta?" aria-label="Cerca">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
           </form>
-
-
-
-        </ul>
+      </div>
       </div>
     </nav>
 

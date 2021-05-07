@@ -73,32 +73,24 @@ img {
     margin: 20px;
 }
 
-ul.horizontal {
+div.horizontal {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: #333;
 }
 
-ul.gray {
+div.gray {
   border: 1px solid #afaeae;
   background-color: #f3f3f3;
 }
 
-ul.horizontal li {
+ul.menu2 li {
   float: left;
 }
 
-ul.horizontal li a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  padding: 15px;
-}
 
-ul.gray li a {
+ul.menu2 li a {
   display: block;
   color: #666;
   text-align: center;
@@ -106,18 +98,22 @@ ul.gray li a {
   padding: 15px;
 
 }
+ul.menu2 li a.dropdown-item{
+  padding: 0.25rem 1.5rem;
+}
 
-ul.gray li a.active {
+
+ul.menu2 li a.active {
   color: white;
   background-color: #06aa4a;
 }
 
-ul.gray li.active{
+ul.menu2 li.active{
   color: white;
   background-color: #06aa4a;
 }
 
-ul.horizontal li a:hover:not(.active) {
+ul.menu2 li a:hover:not(.active) {
   background-color: #ddd;
 }
 /*code to change background color
