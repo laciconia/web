@@ -16,11 +16,23 @@ body {
   border-style: ridge;
 }
 
+.article-container{
+  background-color: rgba(144, 238, 144, 0.2);
+  margin:40px;
+  border-radius: 15px;
+}
 h1 {
   text-align:center;
   padding: 1%;
 }
 
+.red-header{
+  color: red;  
+}
+
+.green-header{
+  color:forestgreen;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -61,12 +73,58 @@ img {
     margin: 20px;
 }
 
+ul.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
-/*code to change background color*/
+ul.gray {
+  border: 1px solid #afaeae;
+  background-color: #f3f3f3;
+}
+
+ul.horizontal li {
+  float: left;
+}
+
+ul.horizontal li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px;
+}
+
+ul.gray li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px;
+
+}
+
+ul.gray li a.active {
+  color: white;
+  background-color: #06aa4a;
+}
+
+ul.gray li.active{
+  color: white;
+  background-color: #06aa4a;
+}
+
+ul.horizontal li a:hover:not(.active) {
+  background-color: #ddd;
+}
+/*code to change background color
 .navbar-nav>.active>a {
     background-color: #C0C0C0;
     border-radius: 15px;
-}
+}*/
 
 #app {
   margin: 3rem auto;
