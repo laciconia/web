@@ -7,12 +7,21 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="styles.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="forum2.js" defer></script>
+
+    
     <title>La Ciconia</title>
   </head>
   <body>
     <h1>La Ciconia</h1>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 0;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,7 +35,7 @@
             <a class="nav-link" href="#">Notícies</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Informació
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -34,7 +43,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Part</a>
               <a class="dropdown-item" href="#">Activitat física</a>
-              <a class="dropdown-item active" href="alimentacio.html">Alimentació</a>
+              <a class="dropdown-item" href="alimentacio.html">Alimentació</a>
               <a class="dropdown-item" href="#">Concepció</a>
               <a class="dropdown-item" href="#">Evolució de l'embaràs</a>
               <a class="dropdown-item" href="#">Medicació</a>
@@ -45,7 +54,7 @@
             <a class="nav-link" href="calculadora.html">Calculadores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="forum.html">Fòrum</a>
+            <a class="nav-link active" href="forum.html">Fòrum</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">FAQ</a>
@@ -62,24 +71,70 @@
         </div>
       </div>
     </nav>
+  <!--
+    <div id="app">
+      <form>
+        <div class="form-group">
+          <label for="lista">Lista de tareas</label>
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="lista"
+            v-model="taskText"
+            placeholder="Escriba tarea"
+          />
+          <button type="button" class="btn btn-primary" v-on:click="addTask">
+            Añadir tarea
+          </button>
+          <ul>
+          <li v-for="task in tasks" :style="listItemStyle(task.margin)">{{ task.text }}</li>
+          </ul>
+        </div>
+      </form>
+    </div> 
+  -->
+    <script type="text/x-template" id="forum">
+      <div class="forum">
+        <div class="comment-wrapper">
+          <div :style="indent" :class="comment">
+            <b>{{ name }}</b>
+            {{ comment }}
+            <input
+              type="text"
+              class="form-control mb-2"
+              v-model="new_comment"
+              placeholder="Comment"
+            />
+            <button type="button" class="btn btn-primary" v-on:click="addComment">
+              Afegir comentari
+            </button>
 
-    <!-- Sense aixo no va el dropdown xD-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    
-
-    <div id="alimentacio-article" class="article-container" style="text-align: center;">
-      <h1>Que puc menjar durant l'embaràs?</h1>
-      <div>
-        <div class="h1 red-header">&#10060;Prohibicions&#10060;</div>
-        <p>blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla </p>
+          </div>
+        </div>
+        <forum
+          v-for="reply in replies" 
+          :replies="reply.replies"
+          :name="reply.name"
+          :comment="reply.comment"
+          :depth="depth + 1"   
+        >
+      </forum>
       </div>
-      <div>
-        <div class="h1 green-header">&#10004;Recomanacions&#10004;</div>
-        <p>blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla </p>
-      </div>
+    </script>
 
+
+    <div class="container">
+      <div id="app">
+      <forum
+                 :replies="comment_tree.replies" 
+                 :depth="0"   
+                 :name="comment_tree.name"
+                 ></forum>
+      </div>
     </div>
-    </section>
+        
+
+
+
   </body>
 </html>
