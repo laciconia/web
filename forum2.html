@@ -54,7 +54,7 @@
             <a class="nav-link" href="calculadora.html">Calculadores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="forum.html">Fòrum</a>
+            <a class="nav-link active" href="forum2.html">Fòrum</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">FAQ</a>
@@ -71,46 +71,43 @@
         </div>
       </div>
     </nav>
-  <!--
-    <div id="app">
-      <form>
-        <div class="form-group">
-          <label for="lista">Lista de tareas</label>
-          <input
-            type="text"
-            class="form-control mb-2"
-            id="lista"
-            v-model="taskText"
-            placeholder="Escriba tarea"
-          />
-          <button type="button" class="btn btn-primary" v-on:click="addTask">
-            Añadir tarea
-          </button>
-          <ul>
-          <li v-for="task in tasks" :style="listItemStyle(task.margin)">{{ task.text }}</li>
-          </ul>
-        </div>
-      </form>
-    </div> 
-  -->
+
     <script type="text/x-template" id="forum">
       <div class="forum">
         <div class="comment-wrapper">
           <div :style="indent" :class="comment">
-            <b>{{ name }}</b>
-            {{ comment }}
-            <input
-              type="text"
-              class="form-control mb-2"
-              v-model="new_comment"
-              placeholder="Comment"
-            />
-            <button type="button" class="btn btn-primary" v-on:click="addComment">
-              Afegir comentari
-            </button>
 
+            <!-- Per canviar l'estructura dels posts, modifiqueu els continguts d'aquest div -->
+
+            <b>{{ name }}</b>
+            <hr>
+            {{ comment }}
+            <br>
+            <button type="button" class="btn-respondre" v-on:click="toggleInput" v-bind:class="{'active': input_active}">Respondre</button>
+            <br>
+
+            <form v-if="input_active" style="margin-top: 10px">
+              <hr>
+              <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Nom</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Nom d'usuari" v-model="new_name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label  class="col-sm-1 col-form-label">Comentari</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" v-model="new_comment"></textarea>
+                </div>
+              </div>
+            </form>
+          
+            <button type="button" class="btn btn-primary" v-on:click="addComment" v-if="input_active">
+              Envia
+            </button>
           </div>
         </div>
+
         <forum
           v-for="reply in replies" 
           :replies="reply.replies"
@@ -123,12 +120,13 @@
     </script>
 
 
-    <div class="container">
-      <div id="app">
+    <div class="forum-container">
+      <div id="forum_app">
       <forum
                  :replies="comment_tree.replies" 
                  :depth="0"   
                  :name="comment_tree.name"
+                 :comment="comment_tree.comment"
                  ></forum>
       </div>
     </div>
