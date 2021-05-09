@@ -16,10 +16,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 
     <script src="calculadora.js" defer></script>
+    <script src="accessibilitat.js" defer></script>
+
     <title>La Ciconia</title>
+    <link rel="shortcut icon" type="image/jpg" href="imatges/favicon.ico"/>
+
   </head>
   <body>
-    <h1>La Ciconia</h1>
+    <h1>
+      <a href="index.html"><img src="imatges/ciconia.png" alt="Icona de La Ciconia" width="100"/></a>
+      La Ciconia
+    </h1>
+
+    <!--Settings-->
+    <div id="settingsDiv">
+      <button type="button" class="btn" id="settingsButton" data-toggle="modal" data-target="#settingsModal"><img src="imatges/settings.png" alt="Icona de opcions" width="50"/></button>    
+      <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Opcions d'accessibilitat</h5>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body"> 
+                <div id="font_slider" style="max-width: 80%; margin: auto;">
+                  <h1>Ampliar la font {{ realAdd * 10 }} %</h1>
+                  <div class="slidecontainer">
+                      <input type="range" min="5" max="30" value="10" class="slider" id="fontSlider" v-model="fontAdd" @input="updateFont">
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Tancar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,45 +67,46 @@
             <a class="nav-link" href="index.html">Inici <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Notícies</a>
+            <a class="nav-link" href="blanc.html">Notícies</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Informació
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Setmana a setmana</a>
+            <div class="dropdown-menu" style="margin:0px 10px" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="index.html">Setmana a setmana</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Part</a>
-              <a class="dropdown-item" href="#">Activitat física</a>
+              <a class="dropdown-item" href="blanc.html">Part</a>
+              <a class="dropdown-item" href="blanc.html">Activitat física</a>
               <a class="dropdown-item" href="alimentacio.html">Alimentació</a>
-              <a class="dropdown-item" href="#">Concepció</a>
-              <a class="dropdown-item" href="#">Evolució de l'embaràs</a>
-              <a class="dropdown-item" href="#">Medicació</a>
-              <a class="dropdown-item" href="#">Recomanacions</a>
+              <a class="dropdown-item" href="blanc.html">Concepció</a>
+              <a class="dropdown-item" href="blanc.html">Evolució de l'embaràs</a>
+              <a class="dropdown-item" href="blanc.html">Medicació</a>
+              <a class="dropdown-item" href="blanc.html">Recomanacions</a>
             </div>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="calculadora.html">Calculadores</a>
+          <li class="nav-item">
+            <a class="nav-link active" href="calculadora.html">Calculadores</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="forum2.html">Fòrum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">FAQ</a>
+            <a class="nav-link" href="blanc.html">FAQ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sobre nosaltres</a>
+            <a class="nav-link" href="blanc.html">Sobre nosaltres</a>
           </li>
         </ul>
         <div class="justify-content-center align-items-cente" style="display: flex;">
           <form class="form-inline my-2 my-lg-0" style="flex-flow: nowrap;  margin: 0px 10px;">
             <input class="form-control mr-sm-2" type="search" placeholder="Tens alguna consulta?" aria-label="Cerca">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Cerca</button>
           </form>
         </div>
       </div>
     </nav>
+
 
     <!-- Sense aixo no va el dropdown xD-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -78,29 +115,33 @@
     <section id="calculadorapes">
       <div>
         <h1>Quant ha crescut el teu bebè?</h1>
-        <div class="container pregunta">
-          <h1>Calculadora d'embaraç</h1>
-          <div class="secundari">Calcul basat en:
+        <div class="container container-info">
+          <h1>Calculadora d'embaràs</h1>
+          <div style="margin-bottom: 1.5rem;">
+            <p>Selecciona com vols fer el càlcul i afegeix les dades necessàries, si vols pots afegir dades complementàries per rebre feedback més personalitzat.</p>
+            <p>La data de naixement es calcularà immediatament, però el càlcul de la setmana i el pes només en clicar el botó. Sempre pots canviar dades i tornar a donar el botó per recalcular.</p>
+            </div>
+          <div class="secundari">Càlcul basat en:
           <select name="calctype" id="cal_select" v-model="seleccio" @change=updateMessage()>
             <!-- que sigui un accent i no una cometa és intencional perk no hi hagi errors el js -->
-            <option value="menstruacio">Data de l´última menstruació</option>
-            <option value="concepcio">Data la concepció</option>
+            <option value="menstruacio">Data de l'última menstruació</option>
+            <option value="concepcio">Data de la concepció</option>
             <option value="part">Data del part</option>
           </select>
           </div>
           <div class="secundari" style="padding: 1em 0;"> {{mensaje1}}:
             <input id="datepicker" style="display: inline;" v-model="date">
-            <div id="alertaData" class="alert" style="display: none;">&#9888 És necessari introduïr una data vàlida</div>
+            <div id="alertaData" class="alert" style="display: none;">&#9888 És necessari introduir una data vàlida</div>
           </div>
 
 
           <p>La data aproximada de naixement és: {{ calcula }}</p>
           
           <div class="row" style="border-top: 2px solid black; padding: 0.5em 0;"></div>
-          <div class="secundari">Informació adicional (opcional):</div>
+          <div class="secundari">Informació addicional (opcional):</div>
           
           <div class="row" style="border-bottom: 1px solid #CCC; padding: 0px 0px 0.5em 0px;">
-              <div class="col-sm">Pes de la mare durant l´última menstruació:
+              <div class="col-sm">Pes de la mare durant l'última menstruació:
               <input id="num1" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg.</div>
               <div class="col-sm">Pes actual:
               <input id="num2" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg. </div>
@@ -108,14 +149,20 @@
 
             <div class="row" style="padding: 5px 0px 1em;">
               <div class="col-sm">Pes del nen (si se sap): 
-                <input id="num2" class="numericinput" type="number" min="0" style="max-width: 60px;"> kg.
+                <input id="num3" class="numericinput" type="number" min="0" style="max-width: 60px;"> g.
               </div>
             </div>
             <div class="col-md-12 text-center">
-              <button id="calcButton" type="button" class="btn btn-primary boto" @click="calcular()">Calcular</button>
+              <button id="calcButton" type="button" class="btn btn-primary boto boto-general " @click="calcular()">Calcular</button>
             </div>
+            <div class="text-center" style="margin:1rem 0em;padding: 0.25rem 0; border-top: 1px solid #CCC; color:lightgray; font-weight: bold;">
+              Aquests càlculs són aproximats i no s'haurien d'utilitzar com informació real!
+            </div>
+
+
+        <!-- Resultats-->
         </div>
-          <div class="container resposta" v-if="mostrarResultat">
+          <div class="container container-info" v-if="mostrarResultat">
             <h1>Resultats</h1>
             <div class="row" style="padding: 1rem;">
               <div class="col-sm-2"></div>
@@ -141,11 +188,15 @@
               <div class="col-sm-2"></div>
             </div>
             <p>Et trobes a la setmana {{setmana}}.</p>
-            <p>En aquesta setmana {{infoSetmana}}</p>
+            <p>En aquesta setmana {{infoSetmana}} (en la versió final d'aquest apartat es mostrarà molta més informació de la setmana).</p>
             <!--En aquesta setmana, el teu bebè mesura {{mesura}} i pesa {{pes}} aproximadament.-->
             <p>En el gràfic següent pots veure com és el creixement típic d'un nadó durant l'embaràs.</p>
             <div style="margin:auto; padding:1rem;"><img src="imatges/graficcreixement.jpeg" alt="Gràfic del creixement del fetus" style="display: block; margin: auto;"/></div>
-            <p>L'alimentació adecuada és molt important pel desenvolupament del bebè, et recomanem que visitis el nostre apartat
+            <p v-if="mostrarAdicional != 0" class="text-ressaltat">Informació addicional:</p>
+            <p v-if="mostrarAdicional == 1">Segons la informació que ens has introduït podem comprovar que el fill creix correctament, el seu pes està dintre de l'interval de pes acceptable per el seu desenvolupament.</p>
+            <p v-if="mostrarAdicional == 2">Segons la informació que ens has introduït sembla que el pes del teu fill està una mica desviat de la seva mesura ideal, et recomanem que segueixis els nostres consells per el desevolupament òptim del fill.</p>
+
+            <p>L'alimentació adequada és molt important pel desenvolupament del bebè, et recomanem que visitis el nostre apartat
               <a href="alimentacio.html" title="Descubre todos los secretos para tener un bebé sanote!">alimentació</a>.
             </p>
           </div>

@@ -10,17 +10,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="styles.css">
 
+    
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
     <script src="https://code.jquery.com/jquery.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-    <script src="accessibilitat_forum.js" defer></script>
     <script src="forum2.js" defer></script>
-    <!-- Sense aixo no va el dropdown xD-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-        
-    
+    <script src="accessibilitat.js" defer></script>
 
 
     
@@ -34,33 +29,33 @@
       La Ciconia
     </h1>
 
-    <!--Settings-->
-    <div id="settingsDiv">
-      <button type="button" class="btn" id="settingsButton" data-toggle="modal" data-target="#settingsModal"><img src="imatges/settings.png" alt="Icona de opcions" width="50"/></button>    
-      <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title" id="exampleModalLabel">Opcions d'accessibilitat</h5>
-              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div class="modal-body"> 
-                <div id="font_slider" style="max-width: 80%; margin: auto;">
-                  <h1>Ampliar la font {{ realAdd * 10 }} %</h1>
-                  <div class="slidecontainer">
-                      <input type="range" min="5" max="30" value="10" class="slider" id="fontSlider" v-model="fontAdd" @input="updateFont">
-                  </div>
+        <!--Settings-->
+        <div id="settingsDiv">
+          <button type="button" class="btn" id="settingsButton" data-toggle="modal" data-target="#settingsModal"><img src="imatges/settings.png" alt="Icona de opcions" width="50"/></button>    
+          <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title" id="exampleModalLabel">Opcions d'accessibilitat</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Tancar</button>
+                <div class="modal-body"> 
+                    <div id="font_slider" style="max-width: 80%; margin: auto;">
+                      <h1>Ampliar la font {{ realAdd * 10 }} %</h1>
+                      <div class="slidecontainer">
+                          <input type="range" min="5" max="30" value="10" class="slider" id="fontSlider" v-model="fontAdd" @input="updateFont">
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Tancar</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>  
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,6 +109,8 @@
     </nav>
 
 
+        <!-- Sense aixo no va el dropdown xD-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
     <script type="text/x-template" id="post">
       <div class="post">
@@ -148,7 +145,7 @@
               </div>
             </form>
           
-            <button  type="button" class="btn btn-primary boto boto-general" v-on:click="addComment" v-if="input_active">
+            <button type="button" class="btn btn-primary" v-on:click="addComment" v-if="input_active">
               Envia
             </button>
           </div>
@@ -166,7 +163,60 @@
       </div>
     </script>
 
+    <script type="text/x-template" id="forum">
+      <div class="forum">
+        <div class="forum-container">
+          <div id="post_app">
+          <post
+                    :replies="thread.replies" 
+                    :depth="0"   
+                    :name="thread.name"
+                    :comment="thread.comment"
+                    :score="thread.score"
+                    ></post>
+          </div> 
+          {{ id }}
+        </div>
 
+        <forum
+          v-for="post in posts"
+          :thread="posts[id]"
+          :id="id+1"
+        >
+        </forum>
+      </div>
+    </script>
+
+    <div class="forum-container">
+      <div id="forum_app_global">
+        <form style="margin-top: 10px">
+          <hr>
+          <div class="form-group row">
+            <label class="col-sm-1 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="Nom d'usuari" v-model="new_name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label  class="col-sm-1 col-form-label">Comentari</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" rows="3" v-model="new_comment"></textarea>
+            </div>
+          </div>
+        </form>
+        <button type="button" class="btn btn-primary" v-on:click="new_thread">
+          Crea fil
+        </button>
+
+        <forum 
+          :thread="posts"
+          :id="0"
+        ></forum>
+      </div>
+
+    </div>
+
+<!--
     <div class="forum-container">
       <div id="post_app">
       <post
@@ -178,8 +228,7 @@
                  ></post>
       </div>
     </div>
-
-
+  -->
 
 
 

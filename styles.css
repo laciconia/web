@@ -1,18 +1,68 @@
 /* definicio dels colors que usarem a tot el document, per poder canviar-los fàcil */
 :root {
-  --principal: rgb(182, 195, 211);
-  --secundari: rgb(37, 155, 76);
-  --resalt: rgb(5, 125, 158);
-  --fons: rgb(229, 253, 229);
+  --principal: rgb(254,227,226);
+  --secundari: rgb(200,124,123);
+  --resalt: rgb(115,126,186);
+  --fons: rgb(245, 238, 221);
+  --succes: rgb(115,126,186);
+  --cosmiclatte: rgb(255, 248, 231);
+  --text-multiplier: 1;
+}
+.btn{
+  font-size: calc(1rem*var(--text-multiplier));
+}
+button#settingsButton{
+    margin-top: 10px;
+    margin-right: 10px;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+.btn-close{
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  float: right;
+  font-size: calc(1.5rem*var(--text-multiplier));
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+
+.form-control{
+  font-size: calc(1rem*var(--text-multiplier));
+}
+.boto-general {
+  border-color: var(--resalt);
+  background-color: var(--resalt);
+}
+
+.container-info {
+  background-color: var(--fons);
+  padding: 1em 3rem 1em;
+  border-radius: 15px;
+  border-style: ridge;
+  margin-bottom: 1rem;
 }
 
 body {
   margin: auto;
+  background-color:var(--cosmiclatte);
+  font-size: calc(1rem*var(--text-multiplier));
 }
 
+.bg-light{
+  background-color: lemonchiffon!important;
+}
 h1 {
   text-align:center;
   padding: 1%;
+  font-size: calc(2.5rem*var(--text-multiplier));
+  font-family: serif;
 }
 
 .red-header{
@@ -33,16 +83,16 @@ img {
   margin: 20px;
 }
 
-div.horizontal {
+.horizontal {
   list-style-type: none;
   margin: 0;
   padding: 0;
   background-color: #333;
 }
 
-div.gray {
+.gray {
   border: 1px solid #afaeae;
-  background-color: #f3f3f3;
+  background-color: rgb(225, 218, 201);
 }
 
 ul.menu2 li {
@@ -68,16 +118,18 @@ ul.menu2 li a.dropdown-item{
 
 ul.menu2 li a.active {
   color: white;
-  background-color: #06aa4a;
+  background-color: var(--resalt);
+  font-weight: bold;
 }
 
 ul.menu2 li.active{
   color: white;
-  background-color: #06aa4a;
+  background-color: var(--resalt);
+  font-weight: bold;
 }
 
 ul.menu2 li a:hover:not(.active) {
-  background-color: #ddd;
+  background-color: var(--principal);
 }
 
 /*Coses del INDEX*/
@@ -90,7 +142,7 @@ ul.menu2 li a:hover:not(.active) {
   width: 100%; /* Full-width */
   height: 15px; /* Specified height */
   border-radius: 10px;
-  background: #d3d3d3; /* Grey background */
+  background: rgb(240,239,247); /* Grey background */
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -105,7 +157,7 @@ ul.menu2 li a:hover:not(.active) {
   border-radius: 5px;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
+  background: var(--resalt); /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -113,7 +165,7 @@ ul.menu2 li a:hover:not(.active) {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 25px;
-  background: #04AA6D; /* Green background */
+  background: var(--resalt); /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -160,11 +212,53 @@ ul.menu2 li a:hover:not(.active) {
   border: 1px solid black;
   border-radius: 5px;
   background-color: inherit;
-  font-size: 16px;
-  margin: 2px
+  font-size: calc(1rem*var(--text-multiplier));
+  margin: 2px;
 }
 .active, .btn-respondre:hover {
   font-weight: bold;
+}
+
+.btn-magrada{
+  float: right;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(190, 248, 190);
+  font-size: calc(1rem*var(--text-multiplier));
+  margin: 2px;
+}
+
+.active, .btn-magrada:hover {
+  font-weight: bold;
+}
+
+.btn-magrada-active {
+  font-weight: bold;
+  background-color: rgb(31, 167, 31);
+}
+
+.btn-nomagrada{
+  float: right;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(252, 177, 177);
+  font-size: calc(1rem*var(--text-multiplier));
+  margin: 2px;
+}
+
+.btn-nomagrada-active {
+  font-weight: bold;
+  background-color: rgb(206, 28, 28);
+}
+
+.active, .btn-nomagrada:hover {
+  font-weight: bold;
+}
+
+.num-likes{
+  float: right;
+  font-size: calc(1rem*var(--text-multiplier));
+  margin: 4px;
 }
 
 .forum-container{
@@ -174,7 +268,7 @@ ul.menu2 li a:hover:not(.active) {
 
   /* Si no us agrada que la vora estigui a totes les respostes, moveu les 2 primeres línies de .forum a .comment-wrapper */
 
-.forum {
+.post {
   border: 2px solid gainsboro;
   border-radius: 5px;
   margin: 10px;
@@ -187,11 +281,9 @@ ul.menu2 li a:hover:not(.active) {
 
 /* Coses de l'apartat Informació */
 .article-container{
-  background-color: rgba(144, 238, 144, 0.2);
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 15px;
 }
 
 .text-informatiu{
@@ -200,7 +292,7 @@ ul.menu2 li a:hover:not(.active) {
 }
 
 .text-ressaltat{
-  color: var(--resalt);
+  color: var(--secundari);
   font-weight: bold;
   display: inline;
 }
@@ -258,20 +350,6 @@ input#datepicker{
   font-weight: bold;
 }
 
-.pregunta {
-  background-color: rgb(229, 253, 229);
-  padding: 1em 3rem 1em;
-  border-radius: 15px;
-  border-style: ridge;
-}
-
-.resposta {
-  background-color: rgb(229, 252, 253);
-  padding: 1em 3rem 1em;
-  border-radius: 15px;
-  border-style: ridge;
-}
-
 .container-dades{
   background-color: var(--principal);
   padding: 0.4rem;
@@ -284,7 +362,7 @@ input#datepicker{
 }
 
 .cubiculo{
-  font-size: 1.3rem;
+  font-size: calc(1.3rem*var(--text-multiplier));
   font-weight: bold;
   text-align: center;
 }
@@ -300,7 +378,18 @@ button#calcButton{
   font-weight: bold;
 }
 
+button#answerButton{
+  display: inline;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
 .alert{
   color:red;
   font-weight: bold;
+}
+
+h2{
+  font-size:calc(1.5rem*var(--text-multiplier)) ;
 }
