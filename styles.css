@@ -1,26 +1,15 @@
+/* definicio dels colors que usarem a tot el document, per poder canviar-los fàcil */
+:root {
+  --principal: rgb(182, 195, 211);
+  --secundari: rgb(37, 155, 76);
+  --resalt: rgb(5, 125, 158);
+  --fons: rgb(229, 253, 229);
+}
+
 body {
   margin: auto;
 }
 
-.pregunta {
-  background-color: rgb(229, 253, 229);
-  padding: 3rem;
-  border-radius: 15px;
-  border-style: ridge;
-}
-
-.resposta {
-  background-color: rgb(229, 252, 253);
-  padding: 3rem;
-  border-radius: 15px;
-  border-style: ridge;
-}
-
-.article-container{
-  background-color: rgba(144, 238, 144, 0.2);
-  margin:40px;
-  border-radius: 15px;
-}
 h1 {
   text-align:center;
   padding: 1%;
@@ -38,36 +27,8 @@ img {
   height: auto;
 }
 
-#carousel {
-  max-width: 70%;
-  margin: auto;
-  margin-top: 50px;
-}
 
-.test {
-  margin:auto;
-}
-
-.carousel-inner{ 
-  max-width: 80%; /* Està al 80% per no tapar les fletxes */
-  margin: auto; /* i això és perquè el div quedi centrat */
-}
-
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev{
-    display:block;
-}
-
-/*Aquests dos són per canviar el color de les fletxes del carousel. El color vé donat pels tres ultims caràcters de fill='%23fff', que sembla que són valors hexadecimals*/
-.carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23afa' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
-
-.carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23afa' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-}
-
+/* COSES DEL MENU*/
 .navbar{
   margin: 20px;
 }
@@ -95,7 +56,6 @@ ul.menu2 li a {
   text-align: center;
   text-decoration: none;
   padding: 15px;
-
 }
 ul.menu2 li div.dropdown-menu{
   margin:0px 10px 5px;
@@ -119,12 +79,8 @@ ul.menu2 li.active{
 ul.menu2 li a:hover:not(.active) {
   background-color: #ddd;
 }
-/*code to change background color
-.navbar-nav>.active>a {
-    background-color: #C0C0C0;
-    border-radius: 15px;
-}*/
 
+/*Coses del INDEX*/
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
@@ -167,6 +123,36 @@ ul.menu2 li a:hover:not(.active) {
   padding: 1rem;
 }
 
+#carousel {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.test {
+  margin:auto;
+}
+
+.carousel-inner{ 
+  max-width: 80%; /* Està al 80% per no tapar les fletxes */
+  margin: auto; /* i això és perquè el div quedi centrat */
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
+
+/*Aquests dos són per canviar el color de les fletxes del carousel. El color vé donat pels tres ultims caràcters de fill='%23fff', que sembla que són valors hexadecimals*/
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23afa' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23afa' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
 /* COSES ESPECÍFIQUES DEL FÒRUM */
 
 .btn-respondre{
@@ -197,4 +183,124 @@ ul.menu2 li a:hover:not(.active) {
 .comment-wrapper {
   padding: 10px;
   overflow: hidden;
+}
+
+/* Coses de l'apartat Informació */
+.article-container{
+  background-color: rgba(144, 238, 144, 0.2);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.text-informatiu{
+  text-align: left;
+  padding: 2rem;
+}
+
+.text-ressaltat{
+  color: var(--resalt);
+  font-weight: bold;
+  display: inline;
+}
+
+.llista{
+	width: 100%;
+}
+
+.llista li{
+    padding: 0.5em 0;
+    border-bottom: 1px solid #CCC;
+}
+
+.llista li:last-child {
+	border-bottom: 0;
+}
+
+/* Calculadora */
+select#cal_select{
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 7px;
+  border: 1px solid #e5e5e5;
+  outline: none;
+}
+
+select option:hover{
+  background-color: #ddd;
+}
+
+input.numericinput{
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 4px;
+  border: 1px solid #e5e5e5;
+  outline: none;
+}
+
+input#datepicker{
+  display: block;
+  color: black;
+  width: auto;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 7px;
+  border: 1px solid #e5e5e5;
+  outline: none;
+}
+
+.secundari{
+  color: var(--secundari);
+  font-weight: bold;
+}
+
+.pregunta {
+  background-color: rgb(229, 253, 229);
+  padding: 1em 3rem 1em;
+  border-radius: 15px;
+  border-style: ridge;
+}
+
+.resposta {
+  background-color: rgb(229, 252, 253);
+  padding: 1em 3rem 1em;
+  border-radius: 15px;
+  border-style: ridge;
+}
+
+.container-dades{
+  background-color: var(--principal);
+  padding: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  border-style: ridge;
+  border-radius: 2rem;
+  border-color: gray;
+}
+
+.cubiculo{
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.boto{
+  background-color: var(--resalt);
+}
+
+button#calcButton{
+  display: inline;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.alert{
+  color:red;
+  font-weight: bold;
 }

@@ -2,16 +2,17 @@
 const micalculadora = Vue.createApp({
     data: function (){
       return {
-        mensaje1: 'Hello world',
+        mensaje1: 'Data de l´última menstruació',
         mensaje2: 'Mi primer programa con',
         jsF: 'Vue', url: 'https://vuejs.org',
         date: '',
         mostrarResultat: false,
         setmana: 0,
         infoSetmana: '',
-        mesura: '',
-        pes: '',
+        mesura: 0,
+        pes: 0,
         mostrarExtra: false,
+        seleccio: 'menstruacio',
       };
     },
     mounted: function() {
@@ -42,17 +43,70 @@ const micalculadora = Vue.createApp({
          var mydate = new Date(parts[2], parts[1] - 1, parts[0]);
          return mydate;
       },
+      checkValidDate(){
+        if(this.date == '')
+        {
+          return false;
+        }
+        return true;
+      },
       calcular(){
+        var x = document.getElementById("alertaData");
+        if(!(this.checkValidDate()))
+        {
+          x.style.display = "inline";
+          return;
+        }
+        else
+        {
+          x.style.display = "none";
+        }
         var avui = new Date();
         var parts =this.date.split('-');
         var mydate = new Date(parts[2], parts[1] - 1, parts[0]);
         var diff =(avui.getTime() - mydate.getTime()) / 1000;
         diff /= (60 * 60 * 24 * 7);
-        this.setmana = Math.abs(Math.round(diff)) -2;
-        this.infoSetmana = 'aquesta setmana el teu bebè està content :D';
-        this.pes = 'molt perquè està ple de felicitat';
-        this.mesura = 'molt poc yas skinnyyyyy';
+        switch(this.seleccio){
+          case "menstruacio":
+            this.setmana = Math.abs(Math.round(diff)) - 2;
+            break;
+          case "part":
+            this.setmana = 40 + Math.round(diff);
+            break;
+          case "concepcio":
+            this.setmana = Math.abs(Math.round(diff));
+            break;
+          }
+
+        if(this.setmana <= 0)
+        {
+          this.setmana = 1;
+        }
+        this.setmana = Math.min(50,this.setmana);
+
+        if(this.setmana <= 0){
+          this.pes = 0;
+          this.altura = 0;
+          this.infoSetmana = 'el bebè encara és molt petit, molts ànims amb l´embaràs, segur que sortirà moníssim :D.'
+        } else{
+          this.infoSetmana = 'aquesta setmana el teu bebè està content :D. Aquesta és una setmana de canvis així que preocupat de tú mateixa i la teva salut mental. Et recomanem que facis una mica de ioga i parlis amb el teb fill, per que comenci a acostumar-se a la teva veu. Bona sort!';
+          this.pes = Math.round(Math.exp(this.setmana/10) / 15 * 1000);
+          this.mesura = Math.round(5033/40*this.setmana + 100 * Math.random()) / 100;
+        }
         this.mostrarResultat = 1;
+      },
+      updateMessage(){
+        switch(this.seleccio){
+          case "menstruacio":
+            this.mensaje1="Data de l'última menstruació";
+            return;
+          case "part":
+            this.mensaje1="Data del part";
+            return;
+          case "concepcio":
+            this.mensaje1="Data la concepció";
+            return;
+        }
       }
     },
 
