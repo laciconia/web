@@ -90,7 +90,7 @@
           </div>
           <div class="secundari" style="padding: 1em 0;"> {{mensaje1}}:
             <input id="datepicker" style="display: inline;" v-model="date">
-            <div id="alertaData" class="alert" style="display: none;">&#9888 Es necessari introduïr una data</div>
+            <div id="alertaData" class="alert" style="display: none;">&#9888 És necessari introduïr una data vàlida</div>
           </div>
 
 
@@ -117,7 +117,7 @@
         </div>
           <div class="container resposta" v-if="mostrarResultat">
             <h1>Resultats</h1>
-            <div class="row">
+            <div class="row" style="padding: 1rem;">
               <div class="col-sm-2"></div>
               <div class="col-sm-2">
                 <div class="container-dades">
@@ -128,13 +128,13 @@
               </div>
               <div class="col-sm-1"></div>
               <div class="col-sm-2 container-dades">
-                <div class="text-center">Pes:</div>
+                <div class="text-center">Pes</div>
                 <div style="border-bottom: 1px solid grey;"></div>
                 <div class="text-center">{{pes}} g</div>
               </div>
               <div class="col-sm-1"></div>
               <div class="col-sm-2 container-dades">
-                <div class="text-center">Altura:</div>
+                <div class="text-center">Altura</div>
                 <div style="border-bottom: 1px solid grey;"></div>
                 <div class="text-center">{{mesura}} cm</div>
               </div>
@@ -142,11 +142,11 @@
             </div>
             <p>Et trobes a la setmana {{setmana}}.</p>
             <p>En aquesta setmana {{infoSetmana}}</p>
-            <p>En aquesta setmana, el teu bebè mesura {{mesura}} i pesa {{pes}} aproximadament. En el gràfic següent pots veure com és el creixement típic d'un nadó durant l'embaràs.</p>
-            TODO ¡¡¡¡ insertar gráfico aquí (no va) !!!! (Ara ja sí (però no sé perquè no la puc centrar sense el display: block))
-            <div style="margin:auto;"><img src="imatges/graficcreixement.jpeg" alt="Gràfic del creixement del fetus" style="display: block; margin: auto;"/></div>
+            <!--En aquesta setmana, el teu bebè mesura {{mesura}} i pesa {{pes}} aproximadament.-->
+            <p>En el gràfic següent pots veure com és el creixement típic d'un nadó durant l'embaràs.</p>
+            <div style="margin:auto; padding:1rem;"><img src="imatges/graficcreixement.jpeg" alt="Gràfic del creixement del fetus" style="display: block; margin: auto;"/></div>
             <p>L'alimentació adecuada és molt important pel desenvolupament del bebè, et recomanem que visitis el nostre apartat
-              <a href="alimentacio.html" title="Descubre todos los secretos para tener un bebé sanote!">informació</a>.
+              <a href="alimentacio.html" title="Descubre todos los secretos para tener un bebé sanote!">alimentació</a>.
             </p>
           </div>
             

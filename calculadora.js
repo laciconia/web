@@ -68,15 +68,20 @@ const micalculadora = Vue.createApp({
         diff /= (60 * 60 * 24 * 7);
         switch(this.seleccio){
           case "menstruacio":
-            this.setmana = Math.abs(Math.round(diff)) - 2;
+            this.setmana = Math.round(diff) - 2;
             break;
           case "part":
             this.setmana = 40 + Math.round(diff);
             break;
           case "concepcio":
-            this.setmana = Math.abs(Math.round(diff));
+            this.setmana = Math.round(diff);
             break;
-          }
+        }
+
+        if (this.setmana < 0) {
+          x.style.display = "inline";
+          return;
+        } else {x.style.display = "none";}
 
         if(this.setmana <= 0)
         {
@@ -89,9 +94,10 @@ const micalculadora = Vue.createApp({
           this.altura = 0;
           this.infoSetmana = 'el bebè encara és molt petit, molts ànims amb l´embaràs, segur que sortirà moníssim :D.'
         } else{
-          this.infoSetmana = 'aquesta setmana el teu bebè està content :D. Aquesta és una setmana de canvis així que preocupat de tú mateixa i la teva salut mental. Et recomanem que facis una mica de ioga i parlis amb el teb fill, per que comenci a acostumar-se a la teva veu. Bona sort!';
+          this.infoSetmana = 'el teu bebè està content :D. Aquesta és una setmana de canvis així que preocupat de tú mateixa i la teva salut mental. Et recomanem que facis una mica de ioga i parlis amb el teb fill, per que comenci a acostumar-se a la teva veu. Bona sort!';
           this.pes = Math.round(Math.exp(this.setmana/10) / 15 * 1000);
           this.mesura = Math.round(5033/40*this.setmana + 100 * Math.random()) / 100;
+          if(this.setmana >= 50) {this.infoSetmana = 'el bebè està molt crescut, la veritat és que hauries d´anar al metge perquè això no és normal';}
         }
         this.mostrarResultat = 1;
       },
