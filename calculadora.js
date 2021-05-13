@@ -115,6 +115,8 @@ const micalculadora = Vue.createApp({
           this.mostrarAdicional = 0;
         }
 
+        document.getElementById("Resultats").scrollIntoView();
+
       },
       updateMessage(){
         switch(this.seleccio){

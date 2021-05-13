@@ -8,6 +8,12 @@
   --cosmiclatte: rgb(255, 248, 231);
   --text-multiplier: 1;
 }
+
+html {
+  scroll-behavior: auto;
+  scroll-behavior: smooth;
+}
+
 .btn{
   font-size: calc(1rem*var(--text-multiplier));
 }
