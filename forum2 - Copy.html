@@ -14,8 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-    <script src="forum2.js" defer></script>
-    <script src="accessibilitat.js" defer></script>
+    <script src="forum2 - Copy.js" defer></script>
+    <!--<script src="accessibilitat.js" defer></script>-->
 
 
     
@@ -163,29 +163,6 @@
       </div>
     </script>
 
-    <script type="text/x-template" id="forum">
-      <div class="forum">
-        <div class="forum-container">
-          <div id="post_app">
-          <post
-                    :replies="thread.replies" 
-                    :depth="0"   
-                    :name="thread.name"
-                    :comment="thread.comment"
-                    :score="thread.score"
-                    ></post>
-          </div> 
-          {{ id }}
-        </div>
-
-        <forum
-          v-for="post in posts"
-          :thread="posts[id]"
-          :id="id+1"
-        >
-        </forum>
-      </div>
-    </script>
 
     <div class="forum-container">
       <div id="forum_app_global">
@@ -208,27 +185,23 @@
           Crea fil
         </button>
 
-        <forum 
-          :thread="posts"
-          :id="0"
-        ></forum>
-      </div>
-
-    </div>
-
-<!--
-    <div class="forum-container">
-      <div id="post_app">
-      <post
-                 :replies="comment_tree.replies" 
-                 :depth="0"   
-                 :name="comment_tree.name"
-                 :comment="comment_tree.comment"
-                 :score="comment_tree.score"
-                 ></post>
+        <div v-for="thread in threads">
+          <div id="post_app">
+          <post
+            :replies="thread.replies"
+            :depth="0"   
+            :name="thread.name"
+            :comment="thread.comment"
+            :score="thread.score"
+            style="border: 2px solid rgb(115,126,186);"
+          ></post>
+          </div>
+          <br> 
+        </div>
       </div>
     </div>
-  -->
+
+
 
 
 
