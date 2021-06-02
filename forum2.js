@@ -233,7 +233,10 @@ new Vue({
     methods: {
       new_thread() {
         var new_comment_tree = {name: this.new_name, comment: this.new_comment, score: 0, replies: []};
-        threads.push(new_comment_tree);
+        //threads.push(new_comment_tree);
+        threads.unshift(new_comment_tree);
+        this.new_name = "";
+        this.new_comment = "";
       },
     },
   })
